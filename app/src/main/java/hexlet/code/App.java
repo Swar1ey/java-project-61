@@ -3,6 +3,7 @@ package hexlet.code;
 import hexlet.code.game.GameCalc;
 import hexlet.code.game.GameEven;
 import hexlet.code.game.GameGCD;
+import hexlet.code.game.GameProgression;
 
 import java.util.Scanner;
 public class App {
@@ -18,6 +19,8 @@ public class App {
                 "3 - Calc\n"
                 +
                 "4 - GCD\n"
+                +
+                "5 - Progression\n"
                 +
                 "0 - Exit");
         System.out.print("Your choice: ");
@@ -36,6 +39,8 @@ public class App {
             case 4:
                 Engine.playGame("Find the greatest common divisor of given numbers", new GameGCD());
                 break;
+            case 5:
+                Engine.playGame("What number is missing in the progression?", new GameProgression());
             case 0:
                 break;
             default:
