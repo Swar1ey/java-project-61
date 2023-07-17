@@ -24,7 +24,7 @@ public class GameCalc implements Engine.GameLogic {
                 System.out.println("Question: " + number1 + '-' + number2);
                 result = number1 - number2;
                 break;
-            case 2:
+            default:
                 System.out.println("Question: " + number1 + '*' + number2);
                 result = number1 * number2;
                 break;

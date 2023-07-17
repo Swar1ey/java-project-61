@@ -10,7 +10,7 @@ public class GameProgression implements Engine.GameLogic {
         Random random = new Random();
         int hideIndex = random.nextInt(10);
         int startProgrs = random.nextInt(100);
-        int increase = random.nextInt(1,15);
+        int increase = random.nextInt(1, 15);
         var result = 0;
         System.out.print("Question: ");
         for (var i = 0; i < 10; i++) {

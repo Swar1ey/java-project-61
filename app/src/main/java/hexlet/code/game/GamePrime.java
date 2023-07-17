@@ -14,7 +14,7 @@ public class GamePrime implements Engine.GameLogic {
         System.out.print(("Your answer: "));
         String answer = scanner.next();
         boolean isPrime = true;
-        for (var i = 2; i < (number + 1) / 2 ; i++) {
+        for (var i = 2; i < (number + 1) / 2; i++) {
             if (number % i == 0) {
                 isPrime = false;
             }
