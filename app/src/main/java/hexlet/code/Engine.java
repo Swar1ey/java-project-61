@@ -13,7 +13,7 @@ public class Engine {
         String name = scanner.next();
         System.out.println("Hello, " + name + "!\n"
                 +
-                "What is the result of the expression?");
+                desGame);
 
         for (var i = 0; i != MAX_ROUNDS; i++) {
             if (!gameLogic.playRound()) {
