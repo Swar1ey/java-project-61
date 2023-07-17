@@ -1,6 +1,5 @@
 package hexlet.code;
 
-import javax.swing.plaf.synth.SynthOptionPaneUI;
 import java.util.Scanner;
 
 public class Cli {
