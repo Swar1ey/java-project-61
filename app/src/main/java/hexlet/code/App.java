@@ -40,7 +40,7 @@ public class App {
                 Engine.playGame("What is the result of the expression?", new GameCalc());
                 break;
             case 4:
-                Engine.playGame("Find the greatest common divisor of given numbers", new GameGCD());
+                Engine.playGame("Find the greatest common divisor of given numbers.", new GameGCD());
                 break;
             case 5:
                 Engine.playGame("What number is missing in the progression?", new GameProgression());
