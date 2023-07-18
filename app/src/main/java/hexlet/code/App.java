@@ -1,6 +1,10 @@
 package hexlet.code;
 
-import hexlet.code.game.*;
+import hexlet.code.game.GameCalc;
+import hexlet.code.game.GameEven;
+import hexlet.code.game.GameGCD;
+import hexlet.code.game.GameProgression;
+import hexlet.code.game.GamePrime;
 
 import java.util.Scanner;
 public class App {
@@ -44,10 +48,7 @@ public class App {
             case 6:
                 Engine.playGame("Answer 'yes' if given number is prime. Otherwise answer 'no'.", new GamePrime());
                 break;
-            case 0:
-                break;
             default:
-                System.out.println("Wrong number");
                 break;
         }
     }
