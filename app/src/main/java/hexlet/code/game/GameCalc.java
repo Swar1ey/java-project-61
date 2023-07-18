@@ -17,15 +17,15 @@ public class GameCalc implements Engine.GameLogic {
 
         switch (operator) {
             case 0:
-                System.out.println("Question: " + number1 + '+' + number2);
+                System.out.println("Question: " + number1 + " + " + number2);
                 result = number1 + number2;
                 break;
             case 1:
-                System.out.println("Question: " + number1 + '-' + number2);
+                System.out.println("Question: " + number1 + " - " + number2);
                 result = number1 - number2;
                 break;
             default:
-                System.out.println("Question: " + number1 + '*' + number2);
+                System.out.println("Question: " + number1 + " * " + number2);
                 result = number1 * number2;
                 break;
         }
