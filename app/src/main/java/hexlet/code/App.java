@@ -33,22 +33,24 @@ public class App {
                 Cli.yourName();
                 break;
             case 2:
-                Engine.playGame("Instructions: Answer 'yes' if the number is even, otherwise answer 'no'.",
-                        new GameEven());
+                GameEven.game();
                 break;
             case 3:
-                Engine.playGame("What is the result of the expression?", new GameCalc());
+                GameCalc.game();
                 break;
             case 4:
-                Engine.playGame("Find the greatest common divisor of given numbers.", new GameGCD());
+                GameGCD.game();
                 break;
             case 5:
-                Engine.playGame("What number is missing in the progression?", new GameProgression());
+                GameProgression.game();
                 break;
             case 6:
-                Engine.playGame("Answer 'yes' if given number is prime. Otherwise answer 'no'.", new GamePrime());
+                GamePrime.game();
+                break;
+            case 0:
                 break;
             default:
+                System.out.println("You entered an invalid value, let's try again.");
                 break;
         }
     }
