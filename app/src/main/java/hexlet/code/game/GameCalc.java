@@ -4,40 +4,49 @@ import hexlet.code.Engine;
 
 import java.util.Random;
 import java.util.Scanner;
-public class GameCalc implements Engine.GameLogic {
-    public boolean playRound() {
+public class GameCalc {
+    private static final String RULES = "What is the result of the expression?";
+    private static final int OPERTORS = 3;
+    private static final int MAX_NUMBER = 100;
+    private static final int MAX_ROUNDS = 3;
+    private static int count = 0;
+    static String question;
 
-        Scanner scanner = new Scanner(System.in);
+    public static void game() {
+        Engine.greeting(RULES);
+
+        while (count < MAX_ROUNDS) {
+            Scanner scanner = new Scanner(System.in);
+            int result = getResult();
+            System.out.println(question);
+            System.out.print("Your answer: ");
+            final int answer = scanner.nextInt();
+            if (Engine.isCorrectAnswer(result == answer, result, answer)) {
+                break;
+            } else {
+                count++;
+            }
+            Engine.congratulations(count == MAX_ROUNDS);
+        }
+    }
+    public static int getResult() {
         Random random = new Random();
 
-        int number1 = random.nextInt(100);
-        int number2 = random.nextInt(100);
-        int operator = random.nextInt(3);
-        int result = 0;
+        int number1 = random.nextInt(MAX_NUMBER);
+        int number2 = random.nextInt(MAX_NUMBER);
+        int operator = random.nextInt(OPERTORS);
+
 
         switch (operator) {
             case 0:
-                System.out.println("Question: " + number1 + " + " + number2);
-                result = number1 + number2;
-                break;
+                question = ("Question: " + number1 + " + " + number2);
+                return number1 + number2;
             case 1:
-                System.out.println("Question: " + number1 + " - " + number2);
-                result = number1 - number2;
-                break;
+                question = ("Question: " + number1 + " - " + number2);
+                return number1 - number2;
             default:
-                System.out.println("Question: " + number1 + " * " + number2);
-                result = number1 * number2;
-                break;
-        }
-        System.out.print(("Your answer: "));
-        int answer = scanner.nextInt();
-        boolean correctAnswer = (answer == result);
-        if (correctAnswer) {
-            System.out.println("Correct!");
-            return true;
-        } else {
-            System.out.println(answer + " is wrong answer ;(. Correct answer was " + result + ".");
-            return false;
+                question = ("Question: " + number1 + " * " + number2);
+                return number1 * number2;
         }
     }
 }
