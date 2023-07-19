@@ -27,27 +27,27 @@ public class App {
                 +
                 "0 - Exit");
         System.out.print("Your choice: ");
-        int num = scanner.nextInt();
-        switch (num) {
-            case 1:
+        String choice = scanner.next();
+        switch (choice) {
+            case "1":
                 Cli.yourName();
                 break;
-            case 2:
+            case "2":
                 GameEven.game();
                 break;
-            case 3:
+            case "3":
                 GameCalc.game();
                 break;
-            case 4:
+            case "4":
                 GameGCD.game();
                 break;
-            case 5:
+            case "5":
                 GameProgression.game();
                 break;
-            case 6:
+            case "6":
                 GamePrime.game();
                 break;
-            case 0:
+            case "0":
                 break;
             default:
                 System.out.println("You entered an invalid value, let's try again.");
