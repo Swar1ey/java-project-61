@@ -3,28 +3,34 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    private static final int MAX_ROUNDS = 3;
-    public static void playGame(String desGame, GameLogic gameLogic) {
+    private static String name;
+    public static void greeting(String rules) {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Welcome to the Brain Games!\n"
                 +
                 "May I have your name? ");
-        String name = scanner.next();
-        System.out.println("Hello, " + name + "!\n"
-                +
-                desGame);
-
-        for (var i = 0; i != MAX_ROUNDS; i++) {
-            if (!gameLogic.playRound()) {
-                System.out.println("Let's try again, " + name + "!");
-                return;
-            }
+        name = scanner.next();
+        System.out.println("Hello, " + name + "!");
+        System.out.println(rules);
+    }
+    public static String getName() {
+        return name;
+    }
+    public static boolean isCorrectAnswer(boolean equally, Object trueAnswer, Object answer) {
+        if (equally) {
+            System.out.println("Correct!");
+        } else {
+            System.out.println("'" + answer +  "' is wrong answer ;(. Correct answer was '" + trueAnswer + "'.");
+            return true;
         }
-        System.out.println("Congratulations, " + name + "!");
+        return false;
     }
 
-    public interface GameLogic {
-        boolean playRound();
+    public static void congratulations(boolean equally) {
+        if (equally) {
+            System.out.println("Congratulations, " + getName() + "!");
+        }
     }
 }
+
