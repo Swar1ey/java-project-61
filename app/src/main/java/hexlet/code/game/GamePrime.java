@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class GamePrime {
     private static final String RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     private static final int MAX_NUMBER = 100;
+    private static final int MIN_NUMBER = 1;
     private static final int MAX_ROUNDS = 3;
     private static int count = 0;
     static String question;
@@ -31,7 +32,7 @@ public class GamePrime {
     }
     public static boolean isPrime() {
         Random random = new Random();
-        int number = random.nextInt(MAX_NUMBER);
+        int number = random.nextInt(MIN_NUMBER, MAX_NUMBER);
         question = ("Question: " + number);
         for (var i = 2; i < (number + 1) / 2; i++) {
             if (number % i == 0) {
