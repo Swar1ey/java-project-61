@@ -5,27 +5,39 @@ import hexlet.code.Engine;
 import java.util.Random;
 import java.util.Scanner;
 
-public class GamePrime implements Engine.GameLogic {
-    public boolean playRound() {
-        Scanner scanner = new Scanner(System.in);
+public class GamePrime {
+    private static final String RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    private static final int MAX_NUMBER = 100;
+    private static final int MAX_ROUNDS = 3;
+    private static int count = 0;
+    static String question;
+    public static void game() {
+        Engine.greeting(RULES);
+
+        while (count < MAX_ROUNDS) {
+            Scanner scanner = new Scanner(System.in);
+            boolean result = isPrime();
+            System.out.println(question);
+            System.out.print(("Your answer: "));
+            String answer = scanner.next();
+            String isCorrectAnswer = result ? "yes" : "no";
+            if (Engine.isCorrectAnswer(isCorrectAnswer.equals(answer), isCorrectAnswer, answer)) {
+                break;
+            } else {
+                count++;
+            }
+            Engine.congratulations(isCorrectAnswer == answer);
+        }
+    }
+    public static boolean isPrime() {
         Random random = new Random();
-        int number = random.nextInt(100);
-        System.out.println("Question: " + number);
-        System.out.print(("Your answer: "));
-        String answer = scanner.next();
-        boolean isPrime = true;
+        int number = random.nextInt(MAX_NUMBER);
+        question = ("Question: " + number);
         for (var i = 2; i < (number + 1) / 2; i++) {
             if (number % i == 0) {
-                isPrime = false;
+                return false;
             }
         }
-        String isCorrectAnswer = isPrime ? "yes" : "no";
-        if (answer.equals(isCorrectAnswer)) {
-            System.out.println("Correct!");
-            return true;
-        } else {
-            System.out.println("'" + answer + "'" + " is wrong answer ;(. Correct answer was " + isCorrectAnswer + ".");
-            return false;
-        }
+        return true;
     }
 }
