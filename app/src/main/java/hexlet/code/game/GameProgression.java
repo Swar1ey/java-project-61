@@ -12,7 +12,7 @@ public class GameProgression {
     private static final int MIN_PROGRESSION = 1;
     private static final int MAX_PROGRESSION = 15;
     private static int count = 0;
-    static String question;
+    private static String question;
     public static void game() {
         Engine.greeting(RULES);
 
