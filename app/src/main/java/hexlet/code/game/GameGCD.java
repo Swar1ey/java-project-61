@@ -10,7 +10,7 @@ public class GameGCD {
     private static final int MIN_NUMBER = 1;
     private static final int MAX_ROUNDS = 3;
     private static int count = 0;
-    static String question;
+    private static String question;
     public static void game() {
         Engine.greeting(RULES);
 
