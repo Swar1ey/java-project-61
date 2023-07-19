@@ -26,7 +26,7 @@ public class GamePrime {
             } else {
                 count++;
             }
-            Engine.congratulations(isCorrectAnswer == answer);
+            Engine.congratulations(isCorrectAnswer.equals(answer));
         }
     }
     public static boolean isPrime() {
