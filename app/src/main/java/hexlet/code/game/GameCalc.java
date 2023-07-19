@@ -10,7 +10,7 @@ public class GameCalc {
     private static final int MAX_NUMBER = 100;
     private static final int MAX_ROUNDS = 3;
     private static int count = 0;
-    static String question;
+    private static String question;
 
     public static void game() {
         Engine.greeting(RULES);
