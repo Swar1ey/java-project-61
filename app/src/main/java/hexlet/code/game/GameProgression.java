@@ -1,52 +1,35 @@
 package hexlet.code.game;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
-import java.util.Scanner;
-import java.util.Random;
 public class GameProgression {
     private static final String RULES = "What number is missing in the progression?";
-    private static final int MAX_NUMBER = 100;
     private static final int MAX_INDEX = 10;
-    private static final int MAX_ROUNDS = 3;
     private static final int MIN_PROGRESSION = 1;
     private static final int MAX_PROGRESSION = 15;
-    private static int count = 0;
-    private static String question;
     public static void game() {
-        Engine.greeting(RULES);
-
-        while (count < MAX_ROUNDS) {
-            Scanner scanner = new Scanner(System.in);
-            int result = getResult();
-            System.out.println(question);
-            System.out.print("Your answer: ");
-            int answer = scanner.nextInt();
-            if (Engine.isCorrectAnswer(result == answer, result, answer)) {
-                break;
-            } else {
-                count++;
-            }
-            Engine.congratulations(count == MAX_ROUNDS);
+        String[][] questionAnswer = new String[Engine.MAX_ROUNDS][];
+        for (var i = 0; i < Engine.MAX_ROUNDS; i++) {
+            questionAnswer[i] = getResult();
         }
+        Engine.playGame(questionAnswer, RULES);
     }
-    public static int getResult() {
-        Random random = new Random();
-        int hideIndex = random.nextInt(MAX_INDEX);
-        int startProgrs = random.nextInt(MAX_NUMBER);
-        int increase = random.nextInt(MIN_PROGRESSION, MAX_PROGRESSION);
-        int result = 0;
-        question = "Question: ";
+    public static String[] getResult() {
+        String[] questionAnswers = new String[2];
+        int hideIndex = Utils.generateRandomNumber(Utils.DEFAULT_MIN_NUMBER, MAX_INDEX);
+        int startProgrs = Utils.generateRandomNumber(Utils.DEFAULT_MIN_NUMBER, Utils.DEFAULT_MAX_NUMBER);
+        int increase = Utils.generateRandomNumber(MIN_PROGRESSION, MAX_PROGRESSION);
         for (var i = 0; i < MAX_INDEX; i++) {
             if (hideIndex != i) {
-                question = question + (startProgrs + " ");
+                questionAnswers[0] = questionAnswers[0] + (startProgrs + " ");
                 startProgrs += increase;
             } else {
-                question = question + (".. ");
-                result = startProgrs;
+                questionAnswers[0] = questionAnswers[0] + (".. ");
+                questionAnswers[1] = String.valueOf(startProgrs);
                 startProgrs += increase;
             }
         }
-        return result;
+        return questionAnswers;
     }
 }
