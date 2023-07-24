@@ -20,6 +20,7 @@ public class GameProgression {
         int hideIndex = Utils.generateRandomNumber(Utils.DEFAULT_MIN_NUMBER, MAX_INDEX);
         int startProgrs = Utils.generateRandomNumber(Utils.DEFAULT_MIN_NUMBER, Utils.DEFAULT_MAX_NUMBER);
         int increase = Utils.generateRandomNumber(MIN_PROGRESSION, MAX_PROGRESSION);
+        questionAnswers[0] = "";
         for (var i = 0; i < MAX_INDEX; i++) {
             if (hideIndex != i) {
                 questionAnswers[0] = questionAnswers[0] + (startProgrs + " ");
