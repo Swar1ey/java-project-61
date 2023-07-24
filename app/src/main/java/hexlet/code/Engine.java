@@ -4,6 +4,27 @@ import java.util.Scanner;
 
 public class Engine {
     private static String name;
+    public static final int MAX_ROUNDS = 3;
+
+    public static void playGame(String[][] correctAnswer, String rules) {
+        greeting(rules);
+        for (var i = 0; i < MAX_ROUNDS; i++) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Question: " + correctAnswer[i][0]);
+            System.out.print("Your answer: ");
+            String answer = scanner.next();
+            if (answer.equals(correctAnswer[i][1])) {
+                System.out.println("Correct!");
+            } else {
+                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '"
+                        + correctAnswer[i][1] + "'.");
+                System.out.println("Let's try again, " + name + "!");
+                break;
+            }
+        }
+        System.out.println("Congratulations, " + name + "!");
+    }
+
     public static void greeting(String rules) {
         Scanner scanner = new Scanner(System.in);
 
@@ -14,24 +35,4 @@ public class Engine {
         System.out.println("Hello, " + name + "!");
         System.out.println(rules);
     }
-    public static String getName() {
-        return name;
-    }
-    public static boolean isCorrectAnswer(boolean equally, Object trueAnswer, Object answer) {
-        if (equally) {
-            System.out.println("Correct!");
-        } else {
-            System.out.println("'" + answer +  "' is wrong answer ;(. Correct answer was '" + trueAnswer + "'.");
-            System.out.println("Let's try again, " + getName() + "!");
-            return true;
-        }
-        return false;
-    }
-
-    public static void congratulations(boolean equally) {
-        if (equally) {
-            System.out.println("Congratulations, " + getName() + "!");
-        }
-    }
 }
-
