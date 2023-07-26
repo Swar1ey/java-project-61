@@ -29,7 +29,7 @@ public class GameProgression {
 
     public static String isProgression(int hideIndex, int startProgrs, int increase) {
         String question = "";
-        for (var i = 0; i < MAX_INDEX; i++) {
+        for (var i = 0; i <= MAX_INDEX; i++) {
             if (hideIndex != i) {
                 question = question + (startProgrs + " ");
                 startProgrs += increase;
