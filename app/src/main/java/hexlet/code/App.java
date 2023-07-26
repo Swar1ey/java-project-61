@@ -24,29 +24,14 @@ public class App {
         System.out.print("Your choice: ");
         String choice = scanner.next();
         switch (choice) {
-            case "1":
-                Cli.yourName();
-                break;
-            case "2":
-                GameEven.game();
-                break;
-            case "3":
-                GameCalc.game();
-                break;
-            case "4":
-                GameGCD.game();
-                break;
-            case "5":
-                GameProgression.game();
-                break;
-            case "6":
-                GamePrime.game();
-                break;
-            case "0":
-                break;
-            default:
-                System.out.println("You entered an invalid value, let's try again.");
-                break;
+            case "1" -> Cli.yourName();
+            case "2" -> GameEven.game();
+            case "3" -> GameCalc.game();
+            case "4" -> GameGCD.game();
+            case "5" -> GameProgression.game();
+            case "6" -> GamePrime.game();
+            case "0" -> System.out.println("Good bye!");
+            default -> System.out.println("You entered an invalid value, let's try again.");
         }
     }
 }
