@@ -19,13 +19,15 @@ public class Engine {
                 System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '"
                         + correctAnswer[i][1] + "'.");
                 System.out.println("Let's try again, " + name + "!");
-                break;
+                System.exit(0);
             }
         }
         System.out.println("Congratulations, " + name + "!");
     }
 
     public static void greeting(String rules) {
+
+
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Welcome to the Brain Games!\n"
