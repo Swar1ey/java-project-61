@@ -26,12 +26,12 @@ public class GameCalc {
         String chooseOperator = CALCULATOR_OPERATORS[operator];
 
         questionAnswers[0] = number1 + chooseOperator + number2;
-        questionAnswers[1] = String.valueOf(Calculator(number1, number2, chooseOperator));
+        questionAnswers[1] = String.valueOf(calculator(number1, number2, chooseOperator));
 
         return questionAnswers;
     }
 
-    public static int Calculator(int number1, int number2, String chooseOperator) {
+    public static int calculator(int number1, int number2, String chooseOperator) {
         switch (chooseOperator) {
             case " + ":
                 return number1 + number2;
