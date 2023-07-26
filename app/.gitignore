@@ -4,8 +4,19 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
-### IntelliJ IDEA ###
+
+# Ignore Gradle build output directory
+build
+
+**/logs/
+
+
+bin
+.project*
+
 .idea/
+### IntelliJ IDEA ###
+
 .idea/modules.xml
 .idea/jarRepositories.xml
 .idea/compiler.xml
