@@ -8,7 +8,7 @@ public class GameCalc {
     private static final int COUNT_OPERTOR = 2;
     private static final int MIN_NUMBER = 0;
     private static final int MAX_NUMBER = 100;
-    private static final String[] CALCULATOR_OPERATORS = {"+", "-", "*"};
+    private static final String[] CALCULATOR_OPERATORS = {" + ", " - ", " * "};
 
     public static void game() {
         String[][] questionAnswer = new String[Engine.MAX_ROUNDS][];
@@ -33,11 +33,11 @@ public class GameCalc {
 
     public static int Calculator(int number1, int number2, String chooseOperator) {
         switch (chooseOperator) {
-            case "+":
+            case " + ":
                 return number1 + number2;
-            case "-":
+            case " - ":
                 return number1 - number2;
-            case "*":
+            case " * ":
                 return number1 * number2;
             default:
                 throw new NullPointerException();
