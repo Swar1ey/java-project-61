@@ -8,6 +8,8 @@ public class GameProgression {
     private static final int MAX_INDEX = 10;
     private static final int MIN_PROGRESSION = 1;
     private static final int MAX_PROGRESSION = 15;
+    private static final int MIN_NUMBER = 0;
+    private static final int MAX_NUMBER = 100;
     public static void game() {
         String[][] questionAnswer = new String[Engine.MAX_ROUNDS][];
         for (var i = 0; i < Engine.MAX_ROUNDS; i++) {
@@ -17,20 +19,30 @@ public class GameProgression {
     }
     public static String[] getResult() {
         String[] questionAnswers = new String[2];
-        int hideIndex = Utils.generateRandomNumber(Utils.DEFAULT_MIN_NUMBER, MAX_INDEX);
-        int startProgrs = Utils.generateRandomNumber(Utils.DEFAULT_MIN_NUMBER, Utils.DEFAULT_MAX_NUMBER);
+        int hideIndex = Utils.generateRandomNumber(MIN_NUMBER, MAX_INDEX);
+        int startProgrs = Utils.generateRandomNumber(MIN_NUMBER, MAX_NUMBER);
         int increase = Utils.generateRandomNumber(MIN_PROGRESSION, MAX_PROGRESSION);
-        questionAnswers[0] = "";
+        questionAnswers[0] = isProgression(hideIndex, startProgrs, increase);
+        questionAnswers[1] = correctAnswer(hideIndex, startProgrs, increase);
+        return questionAnswers;
+    }
+
+    public static String isProgression(int hideIndex, int startProgrs, int increase) {
+        String question = "";
         for (var i = 0; i < MAX_INDEX; i++) {
             if (hideIndex != i) {
-                questionAnswers[0] = questionAnswers[0] + (startProgrs + " ");
+                question = question + (startProgrs + " ");
                 startProgrs += increase;
             } else {
-                questionAnswers[0] = questionAnswers[0] + (".. ");
-                questionAnswers[1] = String.valueOf(startProgrs);
+                question = question + (".. ");
                 startProgrs += increase;
             }
         }
-        return questionAnswers;
+        return question;
+    }
+
+    public static String correctAnswer(int hideIndex, int startProgrs, int increase) {
+        String result = String.valueOf(startProgrs + (hideIndex * increase));
+        return result;
     }
 }
