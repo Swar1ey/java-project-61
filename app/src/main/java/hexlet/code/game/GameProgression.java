@@ -42,7 +42,7 @@ public class GameProgression {
     }
 
     public static String correctAnswer(int hideIndex, int startProgrs, int increase) {
-        String result = String.valueOf(startProgrs + (hideIndex * increase));
-        return result;
+        int result = (startProgrs + (hideIndex * increase));
+        return String.valueOf(result);
     }
 }
