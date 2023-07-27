@@ -20,15 +20,14 @@ public class GameGCD {
         String[] questionAnswers = new String[2];
         int number1 = Utils.generateRandomNumber(MIN_NUMBER, MAX_NUMBER);
         int number2 = Utils.generateRandomNumber(MIN_NUMBER, MAX_NUMBER);
-        String result = isGCD(number1, number2);
 
         questionAnswers[0] = number1 + " " + number2;
-        questionAnswers[1] = result;
+        questionAnswers[1] = String.valueOf(isGCD(number1, number2));
 
         return questionAnswers;
     }
 
-    public static String isGCD(int number1, int number2) {
+    public static int isGCD(int number1, int number2) {
         int temp;
 
         while (number2 != 0) {
@@ -37,6 +36,6 @@ public class GameGCD {
             number2 = temp;
         }
 
-        return String.valueOf(number1);
+        return number1;
     }
 }
