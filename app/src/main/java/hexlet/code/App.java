@@ -7,6 +7,7 @@ import hexlet.code.game.GameProgression;
 import hexlet.code.game.GamePrime;
 
 import java.util.Scanner;
+
 public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
