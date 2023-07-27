@@ -10,6 +10,7 @@ public class GameProgression {
     private static final int MAX_PROGRESSION = 15;
     private static final int MIN_NUMBER = 0;
     private static final int MAX_NUMBER = 100;
+
     public static void game() {
         String[][] questionAnswer = new String[Engine.MAX_ROUNDS][];
         for (var i = 0; i < Engine.MAX_ROUNDS; i++) {
@@ -17,32 +18,27 @@ public class GameProgression {
         }
         Engine.playGame(questionAnswer, RULES);
     }
+
     public static String[] getResult() {
         String[] questionAnswers = new String[2];
         int hideIndex = Utils.generateRandomNumber(MIN_NUMBER, MAX_INDEX);
-        int startProgrs = Utils.generateRandomNumber(MIN_NUMBER, MAX_NUMBER);
+        int startProgression = Utils.generateRandomNumber(MIN_NUMBER, MAX_NUMBER);
         int increase = Utils.generateRandomNumber(MIN_PROGRESSION, MAX_PROGRESSION);
-        questionAnswers[0] = isProgression(hideIndex, startProgrs, increase);
-        questionAnswers[1] = correctAnswer(hideIndex, startProgrs, increase);
+        String[] question = createProgression(hideIndex, startProgression, increase);
+        questionAnswers[0] = String.join(" ", question);
+        questionAnswers[1] = question[hideIndex];
         return questionAnswers;
     }
 
-    public static String isProgression(int hideIndex, int startProgrs, int increase) {
-        String question = "";
+    public static String[] createProgression(int hideIndex, int startProgression, int increase) {
+        String[] arr = new String[MAX_INDEX];
+        int result;
         for (var i = 0; i <= MAX_INDEX; i++) {
-            if (hideIndex != i) {
-                question = question + (startProgrs + " ");
-                startProgrs += increase;
-            } else {
-                question = question + (".. ");
-                startProgrs += increase;
-            }
+            result = startProgression + i * increase;
+            arr[i] = String.valueOf(result);
         }
-        return question;
+        arr[hideIndex] = "..";
+        return arr;
     }
 
-    public static String correctAnswer(int hideIndex, int startProgrs, int increase) {
-        int result = (startProgrs + (hideIndex * increase));
-        return String.valueOf(result);
-    }
 }
