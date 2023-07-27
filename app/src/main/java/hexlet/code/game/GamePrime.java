@@ -25,7 +25,7 @@ public class GamePrime {
     }
 
     public static boolean isPrime(int number) {
-        for (var i = 2; i < (number + 1) / 2; i++) {
+        for (var i = 2; i <= (number + 1) / 2; i++) {
             if (number % i == 0) {
                 return false;
             }
