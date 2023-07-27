@@ -25,8 +25,9 @@ public class GameProgression {
         int startProgression = Utils.generateRandomNumber(MIN_NUMBER, MAX_NUMBER);
         int increase = Utils.generateRandomNumber(MIN_PROGRESSION, MAX_PROGRESSION);
         String[] question = createProgression(hideIndex, startProgression, increase);
-        questionAnswers[0] = String.join(" ", question);
         questionAnswers[1] = question[hideIndex];
+        question[hideIndex] = "..";
+        questionAnswers[0] = String.join(" ", question);
         return questionAnswers;
     }
 
@@ -37,7 +38,6 @@ public class GameProgression {
             result = startProgression + i * increase;
             arr[i] = String.valueOf(result);
         }
-        arr[hideIndex] = "..";
         return arr;
     }
 
