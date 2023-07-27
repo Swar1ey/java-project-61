@@ -24,17 +24,17 @@ public class GameProgression {
         int hideIndex = Utils.generateRandomNumber(MIN_NUMBER, MAX_INDEX);
         int startProgression = Utils.generateRandomNumber(MIN_NUMBER, MAX_NUMBER);
         int increase = Utils.generateRandomNumber(MIN_PROGRESSION, MAX_PROGRESSION);
-        String[] question = createProgression(hideIndex, startProgression, increase);
+        String[] question = createProgression(startProgression, increase);
         questionAnswers[1] = question[hideIndex];
         question[hideIndex] = "..";
         questionAnswers[0] = String.join(" ", question);
         return questionAnswers;
     }
 
-    public static String[] createProgression(int hideIndex, int startProgression, int increase) {
-        String[] arr = new String[MAX_INDEX];
+    public static String[] createProgression(int startProgression, int increase) {
+        String[] arr = new String[MAX_INDEX + 1];
         int result;
-        for (var i = 0; i < MAX_INDEX - 1; i++) {
+        for (var i = 0; i < MAX_INDEX; i++) {
             result = startProgression + i * increase;
             arr[i] = String.valueOf(result);
         }
