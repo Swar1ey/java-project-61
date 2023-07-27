@@ -17,6 +17,7 @@ public class GameCalc {
         }
         Engine.playGame(questionAnswer, RULES);
     }
+
     public static String[] getResult() {
         String[] questionAnswers = new String[2];
 
