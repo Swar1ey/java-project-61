@@ -34,7 +34,7 @@ public class GameProgression {
     public static String[] createProgression(int startProgression, int increase) {
         String[] arr = new String[MAX_INDEX + 1];
         int result;
-        for (var i = 0; i < MAX_INDEX; i++) {
+        for (var i = 0; i <= MAX_INDEX; i++) {
             result = startProgression + i * increase;
             arr[i] = String.valueOf(result);
         }
